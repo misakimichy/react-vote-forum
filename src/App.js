@@ -12,10 +12,18 @@ class App extends Component {
     this.state = {
       title: '',
       body: '',
-      postId: v4(),
+      postId: '',
       upvote: 0,
       downvote: 0
     }
+  }
+
+  createPost = inputData => {
+    this.setState({
+      title: inputData.title,
+      body: inputData.body,
+      postId: inputData.id
+    })
   }
 
   handleUpVote = () => {
@@ -35,16 +43,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <button onClick={this.handleUpVote}>Like</button>
-      <button onClick={this.handleDownVote}>Meh</button>
         <p>{this.state.title}</p>
         <p>{this.state.body}</p>
+        <p>{this.state.postId}</p>
         <p>Upvote{this.state.upvote}</p>
         <p>DownVote{this.state.downvote}</p>
-        <p>{this.state.postId}</p>
+      <button onClick={this.handleUpVote}>Like</button>
+      <button onClick={this.handleDownVote}>Meh</button>
         <Switch>
           <Route exact path='/' component={Forum} />
-          <Route path='/create-post' component={CreatePost} />
+          <Route path='/create-post' render={() => <CreatePost onCreateNewPost={this.createPost}/>} />
           <Route component={NotFound} />
         </Switch>
       </div>
