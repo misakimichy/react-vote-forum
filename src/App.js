@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
-import { v4 } from 'uuid'
 import './App.css';
+import Header from './Header'
 import Forum from './Forum'
 import NotFound from './NotFound'
 import CreatePost from './CreatePost'
@@ -43,13 +43,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>{this.state.title}</p>
+        {/* <p>{this.state.title}</p>
         <p>{this.state.body}</p>
         <p>{this.state.postId}</p>
         <p>Upvote{this.state.upvote}</p>
         <p>DownVote{this.state.downvote}</p>
-      <button onClick={this.handleUpVote}>Like</button>
-      <button onClick={this.handleDownVote}>Meh</button>
+        <button onClick={this.handleUpVote}>Like</button>
+        <button onClick={this.handleDownVote}>Meh</button> */}
+        <Header />
         <Switch>
           <Route exact path='/' component={Forum} />
           <Route path='/create-post' render={() => <CreatePost onCreateNewPost={this.createPost}/>} />

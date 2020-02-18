@@ -37,6 +37,25 @@
   }
 }
 
+/*
+  Header
+*/
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+}
+
+nav {
+  display: block;
+  margin-left: 2em;
+}
+
+nav a {
+  text-decoration: none;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
