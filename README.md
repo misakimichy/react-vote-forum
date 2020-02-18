@@ -1,4 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Vote Forum
+
+#### _React: Vote Forum, Last Update 02/18/2020_
+
+This project was bootstrapped with [Create Vote Forum](https://github.com/facebook/create-react-app).
+
+
+## Description
+Create a readdit-like board wher users can upvote or downvote the posted news, pictures, and/or other information
+
+## About this application
+- Application should be built with Webpack.
+
+- Components: header, help queue and create a ticket
+
+- Style: Use styles-jsx
+
+- Route: Use React-Router. 
+    - Home: `/`
+    - New ticket form: `/#/newticket`
+
+
+
+## Installation:
+1. Clone this repo:
+```
+$ git clone https://github.com/misakimichy/react-help-queue.git
+```
+
+2. Install npm:
+
+```
+$ npm install
+```
+
+3. Run the project:
+```
+$ npm run start 
+```
+
+4. Open up localhost:8080
+
+
+## Known Bugs
+- No known bugs at this time
+
+## Support and contact details
+I welcome any feedbacks and questions to misaki.koonce@gmail.com
+
+## Technologies Used
+Git, GitHub, ReactJS and Webpack
+
+## License
+Copyright © 2020 under the MIT License
+
+
 
 ## Available Scripts
 
@@ -39,7 +94,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can learn more in the [Create Vote Forum documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
