@@ -6,25 +6,19 @@ This project was bootstrapped with [Create Vote Forum](https://github.com/facebo
 
 
 ## Description
-Create a readdit-like board wher users can upvote or downvote the posted news, pictures, and/or other information
+Create a readdit-like board wher users can upvote or downvote the posted news, pictures, and/or other information.
 
 ## About this application
-- Application should be built with Webpack.
-
-- Components: header, help queue and create a ticket
-
-- Style: Use styles-jsx
-
-- Route: Use React-Router. 
-    - Home: `/`
-    - New ticket form: `/#/newticket`
-
+- A user can create a new post submitting a new form.
+- A user can upvote posts he/she likes.
+- A user can downvote that he/she doen't like, or thinks inappropriate.
+- A user can see how many upvotes/downvotes a post has easily.
 
 
 ## Installation:
 1. Clone this repo:
 ```
-$ git clone https://github.com/misakimichy/react-help-queue.git
+$ git clone https://github.com/misakimichy/react-vote-forum.git
 ```
 
 2. Install npm:
