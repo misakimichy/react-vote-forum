@@ -72,7 +72,10 @@ nav a {
 .form-container textarea {
   width: 300px;
   margin-bottom: 20px;
+  border: 1px solid #8e8e8e;
   border-radius: 3px;
+  font-size: 14px;
+  padding: 5px;
 }
 
 .form-container input {
@@ -80,7 +83,7 @@ nav a {
 }
 
 .form-container textarea {
-  height: 40px;
+  height: 60px;
 }
 
 .form-container button {

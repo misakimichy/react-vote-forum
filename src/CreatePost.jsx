@@ -57,8 +57,8 @@ class CreatePost extends Component {
     }
 }
 
-// CreatePost.propTypes = {
-//     onCreateNewPost: PropTypes.func   
-// }
+CreatePost.propTypes = {
+    onCreateNewPost: PropTypes.func   
+}
 
 export default CreatePost
