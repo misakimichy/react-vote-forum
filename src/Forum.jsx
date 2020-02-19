@@ -7,7 +7,15 @@ const Forum = props => {
     return(
         <main>
             <h1>Forum Board</h1>
-            {/* <h1>{props.title}</h1> */}
+            {props.postList.map(post =>
+                <Post
+                    key={post.id}
+                    title={post.title}
+                    body={post.body}
+                    upvote={post.upvote}
+                    downvote={post.downvote}
+                />
+            )}
         </main>
     )
 }

@@ -10,20 +10,15 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      title: '',
-      body: '',
-      postId: '',
-      upvote: 0,
-      downvote: 0
+      masterPostList: []
     }
   }
 
-  createPost = inputData => {
+  handleAddingPost = newPost => {
+    let newMasterPostList = this.state.masterPostList.slice()
+    newMasterPostList.push(newPost)
     this.setState({
-      title: inputData.title,
-      body: inputData.body,
-      postId: inputData.id,
-      ...this.state.stateObj
+      masterPostList: newMasterPostList
     })
   }
 
@@ -44,17 +39,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>{this.state.title}</p>
-        <p>{this.state.body}</p>
-        <p>{this.state.postId}</p>
-        <p>Upvote{this.state.upvote}</p>
-        <p>DownVote{this.state.downvote}</p>
-        <button onClick={this.handleUpVote}>Like</button>
-        <button onClick={this.handleDownVote}>Meh</button>
         <Header />
         <Switch>
-          <Route exact path='/' component={Forum} />
-          <Route path='/create-post' render={() => <CreatePost onCreateNewPost={this.createPost}/>} />
+          <Route
+            exact path='/'
+            render={() => <Forum postList={this.state.masterPostList} />} 
+          />
+          <Route path='/create-post' render={() => <CreatePost onAddNewPost={this.handleAddingPost}/>} />
           <Route component={NotFound} />
         </Switch>
       </div>

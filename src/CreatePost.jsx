@@ -15,7 +15,7 @@ class CreatePost extends Component {
 
     handleNewForm = event => {
         event.preventDefault()
-        this.props.onCreateNewPost({
+        this.props.onAddNewPost({
             title: this._title.value,
             body: this._body.value,
             id: v4(),
@@ -58,7 +58,7 @@ class CreatePost extends Component {
 }
 
 CreatePost.propTypes = {
-    onCreateNewPost: PropTypes.func   
+    onAddNewPost: PropTypes.func
 }
 
 export default CreatePost
