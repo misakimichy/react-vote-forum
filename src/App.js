@@ -22,20 +22,6 @@ class App extends Component {
     })
   }
 
-  handleUpVote = () => {
-    this.setState({
-      upvote: this.state.upvote + 1,
-      ...this.state.stateObj,
-    })
-  }
-
-  handleDownVote = () => {
-    this.setState({
-      downvote: this.state.downvote + 1,
-      ...this.state.stateObj,
-    })
-  }
-
   render() {
     return (
       <div className="App">
@@ -45,7 +31,9 @@ class App extends Component {
             exact path='/'
             render={() => <Forum postList={this.state.masterPostList} />} 
           />
-          <Route path='/create-post' render={() => <CreatePost onAddNewPost={this.handleAddingPost}/>} />
+          <Route
+            path='/create-post'
+            render={() => <CreatePost onAddNewPost={this.handleAddingPost}/>} />
           <Route component={NotFound} />
         </Switch>
       </div>

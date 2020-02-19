@@ -64,12 +64,14 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
   margin: 0 auto;
   padding: 2em;
   border: 1px solid #ffa500;
   border-radius: 2px;
   font-size: 20px;
+}
+.form-container {
+  width: 50%;
 }
 
 .form-container input,
@@ -98,8 +100,35 @@ main {
   border-radius: 4px;
 }
 
+.forum-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 80%;
+  padding: 2em;
+  margin: 0 auto;
+}
+
+.forum-container > p {
+  width: 100%;
+  text-align: center;
+}
+
 .post-container {
   border: 1px solid #ffa50099;
   border-radius: 4px;
-  max-width: 300px
+  max-width: 300px;
+  min-width: 300px;
+  margin-right: 20px;
+}
+
+.reaction {
+  display: flex;
+  justify-content: center
+}
+
+.reaction p {
+  margin-right: 5px;
+  cursor: pointer;
+  padding: 10px
 }

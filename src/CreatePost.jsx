@@ -18,9 +18,7 @@ class CreatePost extends Component {
         this.props.onAddNewPost({
             title: this._title.value,
             body: this._body.value,
-            id: v4(),
-            upvote: 0,
-            downvote: 0
+            id: v4()
         })
 
         this.setState({

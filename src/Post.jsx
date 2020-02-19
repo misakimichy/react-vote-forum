@@ -1,29 +1,43 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-const Post = props => {
-    return (
-        <section className='post-container'>
-            <h3>{props.title}</h3>
-            <p>{props.body}</p>
-            <div className='button'>
-                <p>❤️ {props.upvote}</p>
-                <p>🤮 {props.downvote}</p>
-            </div>
-            <div className='button'>
-                <button>Like</button>
-                <button>Meh</button>
-            </div>
-        </section>
-    )
+class Post extends Component {
+    state = {
+        upvote: 0,
+        downvote: 0
+    }
+
+    handleUpVote = () => {
+        this.setState({
+            upvote: this.state.upvote + 1,
+            ...this.state.stateObj,
+        })
+      }
+    
+    handleDownVote = () => {
+        this.setState({
+            downvote: this.state.downvote + 1,
+            ...this.state.stateObj,
+        })
+      }
+    render() {
+        return (
+            <section className='post-container'>
+                <h3>{this.props.title}</h3>
+                <p>{this.props.body}</p>
+                <div className='reaction'>
+                    <p onClick={this.handleUpVote}>❤️<span>{this.state.upvote}</span></p>
+                    <p onClick={this.handleDownVote}>🤮<span>{this.state.downvote}</span></p>
+                </div>
+            </section>
+        )
+    }
 }
 
 Post.propTypes = {
     title: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
-    upvote: PropTypes.number.isRequired,
-    downvote: PropTypes.number.isRequired
 }
 
 export default Post
