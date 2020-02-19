@@ -22,7 +22,8 @@ class App extends Component {
     this.setState({
       title: inputData.title,
       body: inputData.body,
-      postId: inputData.id
+      postId: inputData.id,
+      ...this.state.stateObj
     })
   }
 
@@ -43,13 +44,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <p>{this.state.title}</p>
+        <p>{this.state.title}</p>
         <p>{this.state.body}</p>
         <p>{this.state.postId}</p>
         <p>Upvote{this.state.upvote}</p>
         <p>DownVote{this.state.downvote}</p>
         <button onClick={this.handleUpVote}>Like</button>
-        <button onClick={this.handleDownVote}>Meh</button> */}
+        <button onClick={this.handleDownVote}>Meh</button>
         <Header />
         <Switch>
           <Route exact path='/' component={Forum} />
