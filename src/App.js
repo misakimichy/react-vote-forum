@@ -22,6 +22,22 @@ class App extends Component {
     })
   }
 
+  handleUpVote = () => {
+    this.setState({
+        upvote: this.state.upvote + 1,
+        ...this.state.stateObj,
+    })
+    console.log('Up!!!!!')
+  }
+
+  handleDownVote = () => {
+    this.setState({
+        downvote: this.state.downvote + 1,
+        ...this.state.stateObj,
+    })
+    console.log('Mehhhhh')
+  }
+
   render() {
     return (
       <div className="App">
@@ -29,7 +45,11 @@ class App extends Component {
         <Switch>
           <Route
             exact path='/'
-            render={() => <Forum postList={this.state.masterPostList} />} 
+            render={() => <Forum
+                            postList={this.state.masterPostList}
+                            onUpVote={() => this.handleUpVote()}
+                            onDownVote={() => this.handleDownVote()}
+                          />}
           />
           <Route
             path='/create-post'

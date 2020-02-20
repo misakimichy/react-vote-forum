@@ -15,6 +15,8 @@ const Forum = props => {
                         key={post.id}
                         title={post.title}
                         body={post.body}
+                        onUpVote={() => props.onUpVote()}
+                        onDownVote={() => props.onDownVote()}
                     />
                 )}
             </section>
@@ -23,7 +25,9 @@ const Forum = props => {
 }
 
 Forum.propTyles = {
-    postList: PropTypes.func
+    postList: PropTypes.func,
+    onUpVote: PropTypes.func,
+    onDownVote: PropTypes.func
 }
 
 export default Forum
