@@ -15,13 +15,12 @@ class App extends Component {
   }
 
   handleAddingPost = newPost => {
-    let newMasterPostList = this.state.masterPostList.slice()
-    newMasterPostList.push(newPost)
     this.setState({
-      masterPostList: newMasterPostList
+      masterPostList: [...this.state.masterPostList, newPost]
     })
   }
 
+  // maybe this will fix: https://stackoverflow.com/questions/37662708/react-updating-state-when-state-is-an-array-of-objects
   handleUpVote = () => {
     this.setState({
         upvote: this.state.upvote + 1,

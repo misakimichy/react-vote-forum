@@ -12,7 +12,6 @@ class CreatePost extends Component {
     _title = React.createRef()
     _body = React.createRef()
     
-
     handleNewForm = event => {
         event.preventDefault()
         this.props.onAddNewPost({
@@ -27,10 +26,8 @@ class CreatePost extends Component {
             toHome: true
         })
     }
-
     
     render() { 
-
         if(this.state.toHome){
             return <Redirect to='/' />
         } 

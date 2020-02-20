@@ -15,6 +15,8 @@ const Forum = props => {
                         key={post.id}
                         title={post.title}
                         body={post.body}
+                        upvote={post.upvote}
+                        downvote={post.downvote}
                         onUpVote={() => props.onUpVote()}
                         onDownVote={() => props.onDownVote()}
                     />
@@ -24,8 +26,8 @@ const Forum = props => {
     )
 }
 
-Forum.propTyles = {
-    postList: PropTypes.func,
+Forum.propTypes = {
+    postList: PropTypes.array,
     onUpVote: PropTypes.func,
     onDownVote: PropTypes.func
 }
