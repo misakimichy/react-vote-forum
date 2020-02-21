@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { v4 } from 'uuid'
 import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 
@@ -17,8 +16,7 @@ class CreatePost extends Component {
         this.props.onAddNewPost({
             title: this._title.value,
             body: this._body.value,
-            id: v4(),
-            upvote: 0,
+            upvote: 1,
             downvote: 0
         })
 

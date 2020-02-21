@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
+import { v4 } from 'uuid'
 import './App.css';
 import Header from './Header'
 import Forum from './Forum'
@@ -10,26 +11,36 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      masterPostList: []
+      masterPostList: {}
     }
   }
 
   handleAddingPost = newPost => {
+    const postId = v4()
+    const newMaterPostList = Object.assign({}, this.state.masterPostList, {
+      [postId]: newPost,
+    })
     this.setState({
-      masterPostList: [...this.state.masterPostList, newPost]
+      masterPostList: newMaterPostList
     })
   }
 
   // maybe this will fix: https://stackoverflow.com/questions/37662708/react-updating-state-when-state-is-an-array-of-objects
-  handleUpVote = () => {
+  handleUpVote = postId => {
+    const clickedPostKey = Object.keys(this.state.masterPostList).find(id => id === postId);
+    this.state.masterPostList[clickedPostKey].upvote++
     this.setState({
-        upvote: this.state.upvote + 1,
-        ...this.state.stateObj,
+      masterPostList: {
+        [clickedPostKey]: {
+          upvote: this.state.masterPostList[clickedPostKey].upvote,
+          ...this.state.masterPostList[clickedPostKey]
+        },
+        ...this.state.stateObj
+      }
     })
-    console.log('Up!!!!!')
   }
 
-  handleDownVote = () => {
+  handleDownVote = postId => {
     this.setState({
         downvote: this.state.downvote + 1,
         ...this.state.stateObj,
@@ -46,8 +57,8 @@ class App extends Component {
             exact path='/'
             render={() => <Forum
                             postList={this.state.masterPostList}
-                            onUpVote={() => this.handleUpVote()}
-                            onDownVote={() => this.handleDownVote()}
+                            onUpVote={this.handleUpVote}
+                            onDownVote={this.handleDownVote}
                           />}
           />
           <Route
