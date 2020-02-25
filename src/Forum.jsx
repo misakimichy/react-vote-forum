@@ -21,6 +21,9 @@ const Forum = props => {
                                 postId={postId}
                                 title={post.title}
                                 body={post.body}
+                                upvote={post.upvote}
+                                downvote={post.downvote}
+                                onUpVote={props.onUpVote}
                                 onDownVote={props.onDownVote}
                             />
                         )
@@ -33,6 +36,7 @@ const Forum = props => {
 
 Forum.propTypes = {
     postList: PropTypes.object,
+    onUpVote: PropTypes.func,
     onDownVote: PropTypes.func
 }
 

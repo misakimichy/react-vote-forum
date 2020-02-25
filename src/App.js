@@ -26,27 +26,23 @@ class App extends Component {
   }
 
   // maybe this will fix: https://stackoverflow.com/questions/37662708/react-updating-state-when-state-is-an-array-of-objects
-  // handleUpVote = postId => {
-  //   const clickedPostKey = Object.keys(this.state.masterPostList).find(id => id === postId);
-  //   let newMasterPost = Object.assign({}, this.state.masterPostList[clickedPostKey], {
-  //     upvote: this.state.masterPostList[clickedPostKey].upvote++
-  //   })
-
-  //   this.setState({
-  //     masterPostList: {
-  //       [clickedPostKey]: {
-  //         upvote: newMasterPost
-  //       },
-  //       ...this.state.masterPostList
-  //     }
-  //   })
-  // }
+  handleUpVote = postId => {
+    const clickedPostKey = Object.keys(this.state.masterPostList).find(id => id === postId);
+    this.setState({
+      masterPostList: {
+        [clickedPostKey]: {
+          upvote: this.state.masterPostList[clickedPostKey].upvote++
+        },
+        ...this.state.masterPostList
+      }
+    })
+  }
 
   // Hasn't added updated functionality
   handleDownVote = postId => {
     this.setState({
-        downvote: this.state.downvote + 1,
-        ...this.state.stateObj,
+        downvote: this.state.downvote - 1,
+        // ...this.state.stateObj,
     })
     console.log('Mehhhhh')
   }
@@ -60,7 +56,7 @@ class App extends Component {
             exact path='/'
             render={() => <Forum
                             postList={this.state.masterPostList}
-                            // onUpVote={this.handleUpVote}
+                            onUpVote={this.handleUpVote}
                             onDownVote={this.handleDownVote}
                           />}
           />
