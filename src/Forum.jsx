@@ -13,20 +13,18 @@ const Forum = props => {
                         return (
                             <p>There are no post yet. Add a new post!</p>
                         )
+                    } else {
+                        const post = props.postList[postId]
+                        return (
+                            <Post
+                                key={postId}
+                                postId={postId}
+                                title={post.title}
+                                body={post.body}
+                                onDownVote={props.onDownVote}
+                            />
+                        )
                     }
-                    const post = props.postList[postId]
-                    return (
-                        <Post
-                            key={postId}
-                            postId={postId}
-                            title={post.title}
-                            body={post.body}
-                            upvote={post.upvote}
-                            downvote={post.downvote}
-                            onUpVote={props.onUpVote}
-                            onDownVote={props.onDownVote}
-                        />
-                    )
                 })}
             </section>
         </main>
@@ -35,7 +33,6 @@ const Forum = props => {
 
 Forum.propTypes = {
     postList: PropTypes.object,
-    onUpVote: PropTypes.func.isRequired,
     onDownVote: PropTypes.func
 }
 
