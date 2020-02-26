@@ -33,18 +33,25 @@ class App extends Component {
         [clickedPostKey]: {
           upvote: this.state.masterPostList[clickedPostKey].upvote++
         },
-        ...this.state.masterPostList
+        ...this.state.masterPostList,
       }
     })
   }
 
   // Hasn't added updated functionality
   handleDownVote = postId => {
+    const clickedPostKey = Object.keys(this.state.masterPostList).find(id => id ===postId);
     this.setState({
-        downvote: this.state.downvote - 1,
+      masterPostList: {
+        [clickedPostKey]: {
+          downvote: this.state.masterPostList[clickedPostKey].downvote--
+        },
+        ...this.state.masterPostList
+      }
+        // downvote: this.state.downvote - 1,
         // ...this.state.stateObj,
     })
-    console.log('Mehhhhh')
+    // console.log('Mehhhhh')
   }
 
   render() {

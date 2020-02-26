@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Redirect } from 'react-router-dom'j
+import { Redirect } from 'react-router-dom'
 
 class CreatePost extends Component {
     state = {
@@ -16,7 +16,7 @@ class CreatePost extends Component {
         this.props.onAddNewPost({
             title: this._title.value,
             body: this._body.value,
-            upvote: 1,
+            upvote: 0,
             downvote: 0
         })
 
