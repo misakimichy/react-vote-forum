@@ -25,7 +25,6 @@ class App extends Component {
     })
   }
 
-  // maybe this will fix: https://stackoverflow.com/questions/37662708/react-updating-state-when-state-is-an-array-of-objects
   handleUpVote = postId => {
     const clickedPostKey = Object.keys(this.state.masterPostList).find(id => id === postId);
     this.setState({
@@ -48,10 +47,7 @@ class App extends Component {
         },
         ...this.state.masterPostList
       }
-        // downvote: this.state.downvote - 1,
-        // ...this.state.stateObj,
     })
-    // console.log('Mehhhhh')
   }
 
   render() {
